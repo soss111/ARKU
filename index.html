@@ -24,6 +24,8 @@
       background: white;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
       box-sizing: border-box;
+      position: relative; /* IMPORTANT for Chrome */
+      display: block;     /* IMPORTANT for Chrome */
     }
 
     .page-break {
@@ -324,8 +326,6 @@
 
 <script>
   document.getElementById("downloadBtn").addEventListener("click", () => {
-    const element = document.getElementById("documentRoot");
-
     html2pdf()
       .set({
         margin: 0,
@@ -333,12 +333,13 @@
         pagebreak: { mode: ['css', 'legacy'] },
         html2canvas: {
           scale: 2,
-          scrollY: -window.scrollY,
-          windowHeight: document.body.scrollHeight
+          scrollY: 0,
+          windowWidth: document.documentElement.scrollWidth,
+          windowHeight: document.documentElement.scrollHeight
         },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
       })
-      .from(element)
+      .from(document.getElementById("documentRoot"))
       .save();
   });
 </script>
