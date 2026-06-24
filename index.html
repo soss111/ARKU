@@ -19,17 +19,13 @@
     /* A4 page container */
     .page {
       width: 210mm;
-      min-height: 297mm;
+      min-height: 295mm;
       padding: 15mm 20mm;
       background: white;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
       box-sizing: border-box;
       position: relative; /* Chrome fix */
       display: block;     /* Chrome fix */
-    }
-
-    .page-break {
-      page-break-before: always;
     }
 
     h1, h2 {
@@ -210,7 +206,7 @@
   </div>
 
   <!-- PAGE 2 -->
-  <div class="page page-break">
+  <div class="page">
 
     <!-- INITIAL CONDITION -->
     <div class="section">
@@ -330,7 +326,7 @@
       .set({
         margin: 0,
         filename: 'deburring_questionnaire.pdf',
-        pagebreak: { mode: ['css', 'legacy'] },
+        pagebreak: { mode: ['avoid-all'] },
         html2canvas: {
           scale: 2,
           scrollY: 0,
