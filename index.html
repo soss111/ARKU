@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="et">
 <head>
   <meta charset="UTF-8">
-  <title>Deburring Questionnaire – 2×A4</title>
+  <title>Deburring Questionnaire – A4 PDF Safe</title>
 
   <style>
     body {
@@ -11,46 +11,41 @@
       margin: 0;
       padding: 20px;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
+      justify-content: center;
     }
 
-    /* A4 page container */
-    .page {
+    #documentRoot {
       width: 210mm;
-      min-height: 295mm;
-      padding: 15mm 20mm;
       background: white;
+      padding: 15mm 20mm;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
       box-sizing: border-box;
-      position: relative; /* Chrome fix */
-      display: block;     /* Chrome fix */
     }
 
     h1, h2 {
-      margin-bottom: 2px;
+      margin: 0 0 6px 0;
     }
 
     .section {
       border: 1px solid #ccc;
       padding: 10px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       border-radius: 4px;
+      page-break-inside: avoid; /* prevents splitting */
     }
 
     .row {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 10px;
+      gap: 12px;
+      margin-bottom: 8px;
     }
 
     .field {
       display: flex;
       flex-direction: column;
       flex: 1;
-      min-width: 180px;
+      min-width: 160px;
     }
 
     input[type="text"],
@@ -71,17 +66,18 @@
     .checkbox-group {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 14px;
     }
 
     .checkbox-item {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
       font-size: 0.9rem;
     }
 
     #downloadBtn {
+      margin-top: 20px;
       padding: 10px 20px;
       font-size: 1rem;
       background: #0078d4;
@@ -89,7 +85,6 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      margin-bottom: 20px;
     }
 
     #downloadBtn:hover {
@@ -100,219 +95,211 @@
 
 <body>
 
-<button id="downloadBtn">Download PDF</button>
+<div>
+  <button id="downloadBtn">Laadi PDF</button>
+</div>
 
 <div id="documentRoot">
 
-  <!-- PAGE 1 -->
-  <div class="page">
+  <h1>Questionnaire Deburring Machine</h1>
+  <p>Ident. No. FL7701 EN &nbsp;&nbsp; Rev. 03</p>
 
-    <h1>Questionnaire Deburring Machine</h1>
-    <p>Ident. No. FL7701 EN &nbsp;&nbsp; Rev. 03</p>
+  <!-- CUSTOMER INFORMATION -->
+  <div class="section">
+    <h2>Customer information</h2>
 
-    <!-- CUSTOMER INFORMATION -->
-    <div class="section">
-      <h2>Customer information</h2>
-
-      <div class="row">
-        <div class="field">
-          <label>Customer</label>
-          <input type="text">
-        </div>
-        <div class="field">
-          <label>Address</label>
-          <input type="text">
-        </div>
+    <div class="row">
+      <div class="field">
+        <label>Customer</label>
+        <input type="text">
       </div>
-
-      <div class="row">
-        <div class="field">
-          <label>Contact person</label>
-          <input type="text">
-        </div>
-        <div class="field">
-          <label>Phone</label>
-          <input type="text">
-        </div>
-        <div class="field">
-          <label>E-mail</label>
-          <input type="text">
-        </div>
-      </div>
-    </div>
-
-    <!-- CUTTING METHODS -->
-    <div class="section">
-      <h2>Cutting methods</h2>
-      <div class="checkbox-group">
-        <label class="checkbox-item"><input type="checkbox"> CO₂ laser</label>
-        <label class="checkbox-item"><input type="checkbox"> Fiber laser</label>
-        <label class="checkbox-item"><input type="checkbox"> Plasma</label>
-        <label class="checkbox-item"><input type="checkbox"> Oxyfuel</label>
-        <label class="checkbox-item"><input type="checkbox"> Other</label>
-      </div>
-    </div>
-
-    <!-- MATERIALS -->
-    <div class="section">
-      <h2>Materials</h2>
-      <div class="checkbox-group">
-        <label class="checkbox-item"><input type="checkbox"> Steel</label>
-        <label class="checkbox-item"><input type="checkbox"> Stainless steel</label>
-        <label class="checkbox-item"><input type="checkbox"> Aluminium</label>
-        <label class="checkbox-item"><input type="checkbox"> Titanium</label>
-        <label class="checkbox-item"><input type="checkbox"> Other</label>
-      </div>
-    </div>
-
-    <!-- DIMENSIONS -->
-    <div class="section">
-      <h2>Dimensions</h2>
-
-      <div class="row">
-        <div class="field">
-          <label>Length min</label>
-          <input type="text">
-        </div>
-        <div class="field">
-          <label>Length max</label>
-          <input type="text">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="field">
-          <label>Width min</label>
-          <input type="text">
-        </div>
-        <div class="field">
-          <label>Width max</label>
-          <input type="text">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="field">
-          <label>Thickness typical (80%)</label>
-          <input type="text">
-        </div>
-        <div class="field">
-          <label>Quantity / week</label>
-          <input type="text">
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- PAGE 2 -->
-  <div class="page">
-
-    <!-- INITIAL CONDITION -->
-    <div class="section">
-      <h2>Initial condition (burr and surface)</h2>
-
-      <div class="row">
-        <div class="field">
-          <label>Slag bottom / top</label>
-          <div class="checkbox-group">
-            <label class="checkbox-item"><input type="radio" name="slag"> &lt; 1 mm</label>
-            <label class="checkbox-item"><input type="radio" name="slag"> 1–3 mm</label>
-            <label class="checkbox-item"><input type="radio" name="slag"> &gt; 3 mm</label>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="field">
-          <label>Burr bottom / top</label>
-          <div class="checkbox-group">
-            <label class="checkbox-item"><input type="radio" name="burr"> &lt; 1 mm</label>
-            <label class="checkbox-item"><input type="radio" name="burr"> 1–3 mm</label>
-            <label class="checkbox-item"><input type="radio" name="burr"> &gt; 3 mm</label>
-          </div>
-        </div>
-      </div>
-
-      <div class="checkbox-group">
-        <label class="checkbox-item"><input type="checkbox"> Sprinkles / spots</label>
-        <label class="checkbox-item"><input type="checkbox"> Foil coated</label>
-        <label class="checkbox-item"><input type="checkbox"> Oily</label>
-        <label class="checkbox-item"><input type="checkbox"> Coated</label>
-      </div>
-    </div>
-
-    <!-- PROCESS OBJECTIVES -->
-    <div class="section">
-      <h2>Process objectives</h2>
-
-      <div class="checkbox-group">
-        <label class="checkbox-item"><input type="checkbox"> One-sided processing</label>
-        <label class="checkbox-item"><input type="checkbox"> Two-sided processing</label>
-        <label class="checkbox-item"><input type="checkbox"> Slag removal</label>
-        <label class="checkbox-item"><input type="checkbox"> Burr removal</label>
-        <label class="checkbox-item"><input type="checkbox"> Oxide layer removal</label>
-      </div>
-
-      <div class="field" style="margin-top:12px;">
-        <label>Surface treatment (requirements)</label>
-        <textarea></textarea>
-      </div>
-    </div>
-
-    <!-- EDGE PROCESSING -->
-    <div class="section">
-      <h2>Edge processing</h2>
-
-      <div class="checkbox-group">
-        <label class="checkbox-item"><input type="checkbox"> Break sharp edges</label>
-        <label class="checkbox-item"><input type="checkbox"> Rounding of sharp edges</label>
-      </div>
-
-      <div class="checkbox-group" style="margin-top:10px;">
-        <label class="checkbox-item"><input type="radio" name="rounding"> &lt; 0.3 mm</label>
-        <label class="checkbox-item"><input type="radio" name="rounding"> &lt; 1 mm</label>
-        <label class="checkbox-item"><input type="radio" name="rounding"> max. 2 mm radius</label>
-      </div>
-    </div>
-
-    <!-- ACCESSORIES -->
-    <div class="section">
-      <h2>Accessories</h2>
-
-      <div class="checkbox-group">
-        <label class="checkbox-item"><input type="checkbox"> Extraction unit</label>
-        <label class="checkbox-item"><input type="checkbox"> Conveyors / curve</label>
-        <label class="checkbox-item"><input type="checkbox"> Others</label>
-      </div>
-
-      <div class="field" style="margin-top:10px;">
-        <label>If others, specify</label>
+      <div class="field">
+        <label>Address</label>
         <input type="text">
       </div>
     </div>
 
-    <!-- PLANNING -->
-    <div class="section">
-      <h2>Planning</h2>
-
+    <div class="row">
       <div class="field">
-        <label>Planned realization / rough budget</label>
-        <textarea></textarea>
+        <label>Contact person</label>
+        <input type="text">
       </div>
+      <div class="field">
+        <label>Phone</label>
+        <input type="text">
+      </div>
+      <div class="field">
+        <label>E-mail</label>
+        <input type="text">
+      </div>
+    </div>
+  </div>
 
-      <div class="field" style="margin-top:12px;">
-        <label>Other planning notes</label>
-        <textarea></textarea>
+  <!-- CUTTING METHODS -->
+  <div class="section">
+    <h2>Cutting methods</h2>
+    <div class="checkbox-group">
+      <label class="checkbox-item"><input type="checkbox"> CO₂ laser</label>
+      <label class="checkbox-item"><input type="checkbox"> Fiber laser</label>
+      <label class="checkbox-item"><input type="checkbox"> Plasma</label>
+      <label class="checkbox-item"><input type="checkbox"> Oxyfuel</label>
+      <label class="checkbox-item"><input type="checkbox"> Other</label>
+    </div>
+  </div>
+
+  <!-- MATERIALS -->
+  <div class="section">
+    <h2>Materials</h2>
+    <div class="checkbox-group">
+      <label class="checkbox-item"><input type="checkbox"> Steel</label>
+      <label class="checkbox-item"><input type="checkbox"> Stainless steel</label>
+      <label class="checkbox-item"><input type="checkbox"> Aluminium</label>
+      <label class="checkbox-item"><input type="checkbox"> Titanium</label>
+      <label class="checkbox-item"><input type="checkbox"> Other</label>
+    </div>
+  </div>
+
+  <!-- DIMENSIONS -->
+  <div class="section">
+    <h2>Dimensions</h2>
+
+    <div class="row">
+      <div class="field">
+        <label>Length min</label>
+        <input type="text">
+      </div>
+      <div class="field">
+        <label>Length max</label>
+        <input type="text">
       </div>
     </div>
 
-    <!-- NOTES -->
-    <div class="section">
-      <h2>Notes</h2>
-      <textarea style="width:100%; height:80px;"></textarea>
+    <div class="row">
+      <div class="field">
+        <label>Width min</label>
+        <input type="text">
+      </div>
+      <div class="field">
+        <label>Width max</label>
+        <input type="text">
+      </div>
     </div>
 
+    <div class="row">
+      <div class="field">
+        <label>Thickness typical (80%)</label>
+        <input type="text">
+      </div>
+      <div class="field">
+        <label>Quantity / week</label>
+        <input type="text">
+      </div>
+    </div>
+  </div>
+
+  <!-- INITIAL CONDITION -->
+  <div class="section">
+    <h2>Initial condition (burr and surface)</h2>
+
+    <div class="row">
+      <div class="field">
+        <label>Slag bottom / top</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="radio" name="slag"> &lt; 1 mm</label>
+          <label class="checkbox-item"><input type="radio" name="slag"> 1–3 mm</label>
+          <label class="checkbox-item"><input type="radio" name="slag"> &gt; 3 mm</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Burr bottom / top</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="radio" name="burr"> &lt; 1 mm</label>
+          <label class="checkbox-item"><input type="radio" name="burr"> 1–3 mm</label>
+          <label class="checkbox-item"><input type="radio" name="burr"> &gt; 3 mm</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="checkbox-group">
+      <label class="checkbox-item"><input type="checkbox"> Sprinkles / spots</label>
+      <label class="checkbox-item"><input type="checkbox"> Foil coated</label>
+      <label class="checkbox-item"><input type="checkbox"> Oily</label>
+      <label class="checkbox-item"><input type="checkbox"> Coated</label>
+    </div>
+  </div>
+
+  <!-- PROCESS OBJECTIVES -->
+  <div class="section">
+    <h2>Process objectives</h2>
+
+    <div class="checkbox-group">
+      <label class="checkbox-item"><input type="checkbox"> One-sided processing</label>
+      <label class="checkbox-item"><input type="checkbox"> Two-sided processing</label>
+      <label class="checkbox-item"><input type="checkbox"> Slag removal</label>
+      <label class="checkbox-item"><input type="checkbox"> Burr removal</label>
+      <label class="checkbox-item"><input type="checkbox"> Oxide layer removal</label>
+    </div>
+
+    <div class="field" style="margin-top:12px;">
+      <label>Surface treatment (requirements)</label>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <!-- EDGE PROCESSING -->
+  <div class="section">
+    <h2>Edge processing</h2>
+
+    <div class="checkbox-group">
+      <label class="checkbox-item"><input type="checkbox"> Break sharp edges</label>
+      <label class="checkbox-item"><input type="checkbox"> Rounding of sharp edges</label>
+    </div>
+
+    <div class="checkbox-group" style="margin-top:10px;">
+      <label class="checkbox-item"><input type="radio" name="rounding"> &lt; 0.3 mm</label>
+      <label class="checkbox-item"><input type="radio" name="rounding"> &lt; 1 mm</label>
+      <label class="checkbox-item"><input type="radio" name="rounding"> max. 2 mm radius</label>
+    </div>
+  </div>
+
+  <!-- ACCESSORIES -->
+  <div class="section">
+    <h2>Accessories</h2>
+
+    <div class="checkbox-group">
+      <label class="checkbox-item"><input type="checkbox"> Extraction unit</label>
+      <label class="checkbox-item"><input type="checkbox"> Conveyors / curve</label>
+      <label class="checkbox-item"><input type="checkbox"> Others</label>
+    </div>
+
+    <div class="field" style="margin-top:10px;">
+      <label>If others, specify</label>
+      <input type="text">
+    </div>
+  </div>
+
+  <!-- PLANNING -->
+  <div class="section">
+    <h2>Planning</h2>
+
+    <div class="field">
+      <label>Planned realization / rough budget</label>
+      <textarea></textarea>
+    </div>
+
+    <div class="field" style="margin-top:12px;">
+      <label>Other planning notes</label>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div class="section">
+    <h2>Notes</h2>
+    <textarea style="width:100%; height:80px;"></textarea>
   </div>
 
 </div>
@@ -326,7 +313,7 @@
       .set({
         margin: 0,
         filename: 'deburring_questionnaire.pdf',
-        pagebreak: { mode: ['avoid-all'] },
+        pagebreak: { mode: ['css', 'legacy'] },
         html2canvas: {
           scale: 2,
           scrollY: 0,
