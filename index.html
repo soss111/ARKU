@@ -157,37 +157,6 @@
     </div>
   </div>
 
-  <!-- CUSTOMER INFORMATION -->
-  <div class="section">
-    <h2>Customer information</h2>
-
-    <div class="row">
-      <div class="field">
-        <label>Customer</label>
-        <input type="text">
-      </div>
-      <div class="field">
-        <label>Address</label>
-        <input type="text">
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="field">
-        <label>Contact person</label>
-        <input type="text">
-      </div>
-      <div class="field">
-        <label>Phone</label>
-        <input type="text">
-      </div>
-      <div class="field">
-        <label>E-mail</label>
-        <input type="text">
-      </div>
-    </div>
-  </div>
-
   <!-- CUTTING METHODS -->
   <div class="section">
     <h2>Cutting methods</h2>
@@ -249,7 +218,34 @@
       </div>
     </div>
   </div>
+ <!-- EXISTING DEBURRING MACHINE -->
+  <div class="section">
+    <h2>Do you already use a deburring machine?</h2>
 
+    <div class="checkbox-group">
+      <label class="checkbox-item"><input type="radio" name="existing_machine"> NO</label>
+      <label class="checkbox-item"><input type="radio" name="existing_machine"> YES</label>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Manufacturer / type</label>
+        <input type="text">
+      </div>
+      <div class="field">
+        <label>Working stations</label>
+        <input type="text">
+      </div>
+    </div>
+
+    <div class="checkbox-group">
+      <label class="checkbox-item"><input type="checkbox"> Deslagging</label>
+      <label class="checkbox-item"><input type="checkbox"> Deburring</label>
+      <label class="checkbox-item"><input type="checkbox"> Edge rounding</label>
+      <label class="checkbox-item"><input type="checkbox"> Surface treatment</label>
+      <label class="checkbox-item"><input type="checkbox"> Oxide removal</label>
+    </div>
+  </div>
   <!-- INITIAL CONDITION -->
   <div class="section">
     <h2>Initial condition (burr and surface)</h2>
@@ -318,22 +314,6 @@
     </div>
   </div>
 
-  <!-- ACCESSORIES -->
-  <div class="section">
-    <h2>Accessories</h2>
-
-    <div class="checkbox-group">
-      <label class="checkbox-item"><input type="checkbox"> Extraction unit</label>
-      <label class="checkbox-item"><input type="checkbox"> Conveyors / curve</label>
-      <label class="checkbox-item"><input type="checkbox"> Others</label>
-    </div>
-
-    <div class="field" style="margin-top:10px;">
-      <label>If others, specify</label>
-      <input type="text">
-    </div>
-  </div>
-
   <!-- ACCESSORIES REQUIRED -->
   <div class="section">
     <h2>Accessories required?</h2>
@@ -366,35 +346,7 @@
     </div>
   </div>
 
-  <!-- EXISTING DEBURRING MACHINE -->
-  <div class="section">
-    <h2>Do you already use a deburring machine?</h2>
-
-    <div class="checkbox-group">
-      <label class="checkbox-item"><input type="radio" name="existing_machine"> NO</label>
-      <label class="checkbox-item"><input type="radio" name="existing_machine"> YES</label>
-    </div>
-
-    <div class="row">
-      <div class="field">
-        <label>Manufacturer / type</label>
-        <input type="text">
-      </div>
-      <div class="field">
-        <label>Working stations</label>
-        <input type="text">
-      </div>
-    </div>
-
-    <div class="checkbox-group">
-      <label class="checkbox-item"><input type="checkbox"> Deslagging</label>
-      <label class="checkbox-item"><input type="checkbox"> Deburring</label>
-      <label class="checkbox-item"><input type="checkbox"> Edge rounding</label>
-      <label class="checkbox-item"><input type="checkbox"> Surface treatment</label>
-      <label class="checkbox-item"><input type="checkbox"> Oxide removal</label>
-    </div>
-  </div>
-
+ 
   <!-- PLANNING -->
   <div class="section">
     <h2>Planning</h2>
