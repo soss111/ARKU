@@ -17,7 +17,7 @@
     #documentRoot {
       width: 210mm;
       background: white;
-      padding: 15mm 20mm;
+      padding: 10mm 15mm;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
       box-sizing: border-box;
     }
@@ -31,7 +31,8 @@
       padding: 10px;
       margin-bottom: 10px;
       border-radius: 4px;
-      page-break-inside: avoid; /* prevents splitting */
+      page-break-inside: avoid;
+      break-inside: avoid;
     }
 
     .row {
@@ -77,7 +78,7 @@
     }
 
     #downloadBtn {
-      margin-top: 20px;
+      margin-bottom: 20px;
       padding: 10px 20px;
       font-size: 1rem;
       background: #0078d4;
@@ -95,14 +96,66 @@
 
 <body>
 
-<div>
-  <button id="downloadBtn">Laadi PDF</button>
-</div>
+<button id="downloadBtn">Laadi PDF</button>
 
 <div id="documentRoot">
 
   <h1>Questionnaire Deburring Machine</h1>
   <p>Ident. No. FL7701 EN &nbsp;&nbsp; Rev. 03</p>
+
+  <!-- TO FILL OUT BY CUSTOMER -->
+  <div class="section">
+    <h2>To fill out by customer</h2>
+
+    <div class="row">
+      <div class="field">
+        <label>Customer</label>
+        <input type="text">
+      </div>
+      <div class="field">
+        <label>Customer no. / project no.</label>
+        <input type="text">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Address</label>
+        <input type="text">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Contact person</label>
+        <input type="text">
+      </div>
+      <div class="field">
+        <label>Phone</label>
+        <input type="text">
+      </div>
+      <div class="field">
+        <label>E-Mail</label>
+        <input type="text">
+      </div>
+    </div>
+  </div>
+
+  <!-- TO FILL OUT BY ARKU -->
+  <div class="section">
+    <h2>To fill out by ARKU</h2>
+
+    <div class="row">
+      <div class="field">
+        <label>Contact person ARKU</label>
+        <input type="text">
+      </div>
+      <div class="field">
+        <label>Sales</label>
+        <input type="text">
+      </div>
+    </div>
+  </div>
 
   <!-- CUSTOMER INFORMATION -->
   <div class="section">
@@ -281,6 +334,67 @@
     </div>
   </div>
 
+  <!-- ACCESSORIES REQUIRED -->
+  <div class="section">
+    <h2>Accessories required?</h2>
+
+    <div class="row">
+      <div class="field">
+        <label>Extraction unit</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="radio" name="extractor"> NO</label>
+          <label class="checkbox-item"><input type="radio" name="extractor"> YES</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Conveyors / curve</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="radio" name="conveyors"> NO</label>
+          <label class="checkbox-item"><input type="radio" name="conveyors"> YES</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Others</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="radio" name="others_acc"> NO</label>
+          <label class="checkbox-item"><input type="radio" name="others_acc"> YES</label>
+        </div>
+        <input type="text" placeholder="If yes, specify">
+      </div>
+    </div>
+  </div>
+
+  <!-- EXISTING DEBURRING MACHINE -->
+  <div class="section">
+    <h2>Do you already use a deburring machine?</h2>
+
+    <div class="checkbox-group">
+      <label class="checkbox-item"><input type="radio" name="existing_machine"> NO</label>
+      <label class="checkbox-item"><input type="radio" name="existing_machine"> YES</label>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Manufacturer / type</label>
+        <input type="text">
+      </div>
+      <div class="field">
+        <label>Working stations</label>
+        <input type="text">
+      </div>
+    </div>
+
+    <div class="checkbox-group">
+      <label class="checkbox-item"><input type="checkbox"> Deslagging</label>
+      <label class="checkbox-item"><input type="checkbox"> Deburring</label>
+      <label class="checkbox-item"><input type="checkbox"> Edge rounding</label>
+      <label class="checkbox-item"><input type="checkbox"> Surface treatment</label>
+      <label class="checkbox-item"><input type="checkbox"> Oxide removal</label>
+    </div>
+  </div>
+
   <!-- PLANNING -->
   <div class="section">
     <h2>Planning</h2>
@@ -313,9 +427,10 @@
       .set({
         margin: 0,
         filename: 'deburring_questionnaire.pdf',
-        pagebreak: { mode: ['css', 'legacy'] },
+        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
         html2canvas: {
           scale: 2,
+          useCORS: true,
           scrollY: 0,
           windowWidth: document.documentElement.scrollWidth,
           windowHeight: document.documentElement.scrollHeight
